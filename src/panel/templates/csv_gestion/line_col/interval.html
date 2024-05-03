@@ -1,0 +1,23 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Interval {% endblock %}
+
+{% block content %}
+    <div class="main_logo">
+        <img src="{% static 'ressources/interval_logo.png' %}" alt="">
+    </div>
+
+    <label for="{{ form.column.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column">
+    <br>
+    <input class="input_user" type="text" name="{{ form.start_row.name }}" placeholder="Number starting interval">
+    <br>
+    <input class="input_user" type="text" name="{{ form.end_row.name }}" placeholder="Number ending interval">
+    <br>
+    <button class="btn_submit" type="submit">Set Interval</button>
+{% endblock %}

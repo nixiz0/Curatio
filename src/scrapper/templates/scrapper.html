@@ -1,0 +1,47 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Converter {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/scrapper.css' %}">
+
+    <div class="main_scrapper">
+        <div class="scrap_logo">
+            <img src="{% static 'ressources/scrapper_logo.png' %}" alt="scrapper logo">
+        </div>
+        <div class="scrap_title">
+            <h1>Scrapper-Tools</h1>
+        </div>
+        <div class="scrap_tool">
+            <div class="scrap">
+                <a href="{% url 'scrap_text' %}">Text</a>
+            </div>
+            <div class="scrap">
+                <a href="{% url 'scrap_href' %}">Href</a>
+            </div>
+        </div>
+        <div class="scrap_tool">
+            <div class="scrap">
+                <a href="{% url 'scrap_email' %}">Email</a>
+            </div>
+            <div class="scrap">
+                <a href="{% url 'scrap_images' %}">Images</a>
+            </div>
+        </div>
+        <div class="scrap_tool">
+            <div class="scrap">
+                <a href="{% url 'scrap_list' %}">List</a>
+            </div>
+            <div class="scrap">
+                <a href="{% url 'scrap_numbers' %}">Numbers</a>
+            </div>
+        </div>
+        <div class="scrap_tool">
+            <div class="scrap">
+                <a href="{% url 'scrap_content' %}">All-Content</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

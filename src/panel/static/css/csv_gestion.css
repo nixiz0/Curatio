@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #264653;
+    color: white;
+}
+
+nav {
+    background-color: #4ECDC4;
+    padding: 0.8em;
+}
+
+  .sous_nav {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .sous_nav a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 4px #000000;
+    transition: all 0.15s ease-in-out;
+  }
+
+  .sous_nav a:hover {
+    color: #a8a8a8;
+  }
+
+@media(max-width:599px) {
+  .sous_nav {
+    font-size: 1.8em;
+  }
+}
+    
+.main_content {
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 2.2em;
+}
+
+@media(max-width:599px) {
+  .main_content {
+    font-size: 1.8em;
+  }
+}
+
+form {
+    text-shadow: 0px 0px 3px #000000;
+}
+
+.cancel_btn {
+  min-width: 100px;
+  height: 28px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #212529;
+  background: #9b1b1b;
+  text-decoration: none;
+  text-shadow: 0px 0px 3px #000000;
+  -webkit-box-shadow: 0px 0px 7px -2px #000000; 
+  box-shadow: 0px 0px 7px -2px #000000;
+  font-size: 0.6em;
+}
+
+.cancel_btn:hover {
+  background: #631313;
+  text-shadow: 0px 0px 3px #0000003a;
+  color: #212529;
+}
+
+.cancel_btn:active {
+  font-size: 0.55em;
+}
+
+
+/* Class custom for the CSVUploadForm input in the forms.py */
+.custom-file-input {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 8px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  border-radius: 5px;
+  border: 2px solid #212529;
+  background: #e1e1e1;
+  text-shadow: 0px 0px 3px #000000;
+  -webkit-box-shadow: 0px 0px 7px -2px #000000; 
+  box-shadow: 0px 0px 7px -2px #000000;
+  font-size: 0.6em;
+}
+
+.custom-file-input:hover {
+  background: #7a7a7a;
+}
+
+@media(max-width:599px) {
+  .custom-file-input {
+    min-width: 50px;
+    height: 35px;
+    padding: 8px 10px;
+    font-size: 0.4em;
+  }
+}
+
+/* Custom design for the different functions */
+/* PANEL FUNCTIONS */
+.main_logo {
+  text-align: center;
+}
+
+  .main_logo img {
+    width: 8em;
+    height: auto;
+  }
+
+@media(max-width:599px) {
+  .main_logo img {
+    width: 7em;
+  }
+}
+
+.btn_submit {
+  min-width: 130px;
+  height: 42px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #212529;
+  background: #4ECDC4;
+  text-shadow: 0px 0px 3px #000000;
+  -webkit-box-shadow: 0px 0px 7px -2px #000000; 
+  box-shadow: 0px 0px 7px -2px #000000;
+  font-size: 0.6em;
+}
+
+.btn_submit:hover {
+  background: #3a9690;
+  text-shadow: 0px 0px 3px #0000003a;
+  color: #212529
+}
+  
+.btn_submit:active {
+  font-size: 0.55em;
+}
+
+.input_user {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  min-width: 150px;
+  height: 30px;
+  font-size: 0.75em;
+}
+
+@media(max-width:599px) {
+  .input_user {
+    min-width: 120px;
+    height: 30px;
+    font-size: 0.65em;
+  }
+}
+
+/* GRAPHIC FUNCTIONS */
+.graphic_logo {
+  text-align: center;
+  padding: 0.4em;
+}
+
+  .graphic_logo img {
+    width: 4em;
+    height: auto;
+  }
+
+/* STATISTIC FUNCTIONS */
+.pca_illu h4 {
+  margin: 0;
+  text-shadow: 0px 0px 3px #0000003a;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.pca_illu img {
+  margin-bottom: 0.5em;
+  border-radius: 10%;
+  width: 15em;
+  height: auto;
+}
+
+@media(max-width:720px) {
+  .pca_illu img {
+    width: 14em;
+  }
+}
+
+@media(max-width:599px) {
+  .pca_illu img {
+    width: 10em;
+  }
+}
+
+.graph_explain {
+  margin-left: 18%;
+  margin-right: 18%;
+}
+
+  .graph_explain h3 {
+    text-shadow: 0px 0px 3px #0000003a;
+    text-decoration: underline;
+    font-size: 1em;
+  }
+
+  .graph_explain p {
+    text-shadow: 0px 0px 4px #000000;
+    font-size: 0.8em;
+  }
+
+@media(max-width:720px) {
+  .graph_explain {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@media(max-width:599px) {
+  .graph_explain h3 {
+    font-size: 0.7em;
+  }
+
+  .graph_explain p {
+    font-size: 0.5em;
+  }
+}

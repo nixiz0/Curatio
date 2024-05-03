@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+body {
+    background-color: #292f36;
+    color: white;
+}
+
+#navbar {
+    transition: all 0.2s ease-in-out;
+    background-color: #333;
+    color: white;
+}
+
+.fixed {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+}
+
+.nav_doc {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em 0.1em 0.1em 0.1em;
+}
+
+    .nav_doc img {
+        width: 3.5em;
+        height: auto;
+    }
+
+.sous_nav_doc {
+    padding: 0.4em;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_info {
+    padding: 0.7em;
+}
+
+.nav_info a {
+    transition: all 0.2s ease-in-out;
+    text-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 7%;
+    padding: 0.4em;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.nav_info a:hover {
+    text-shadow: none;
+    background-color: #4ECDC4;
+    color: black;
+}
+
+@media(max-width:850px) {
+    .nav_doc img {
+        width: 3em;
+    }
+
+    .nav_info a {
+        font-size: 1.2em;
+    }
+}
+
+@media(max-width:720px) {
+    .nav_doc img {
+        width: 3.5em;
+    }
+
+    .nav_info a {
+        font-size: 1.2em;
+    }
+}
+
+@media(max-width:750px) {
+    .fixed {
+        position: initial;
+    }
+
+    .sous_nav_doc {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.doc_intro {
+    text-align: center;
+    text-shadow: 1px 3px 5px rgba(0,0,0,0.45);
+    padding: 1em;
+    font-size: 1.6em;
+}
+
+    .doc_intro h1 {
+        
+    }
+
+    .doc_intro h2 {
+        color: #4ECDC4;
+    }
+
+    .doc_intro img {
+        width: 6em;
+        height: auto;
+        padding: 0.3em;
+    }
+
+@media(max-width:850px) {
+.doc_intro {
+    font-size: 1.4em;
+}
+
+    .doc_intro img {
+        width: 5em;
+    }
+}
+
+@media(max-width:599px) {
+.doc_intro {
+    font-size: 1.2em;
+}
+
+    .doc_intro img {
+        width: 3.8em;
+    }
+}
+
+.info_tool {
+    margin-top: 5em;
+    text-shadow: 1px 3px 5px rgba(0,0,0,0.45);
+    text-align: center;
+    padding: 1em;
+}
+
+    .title_tool {
+        display: flex;
+        justify-content: center;
+        color: #4ECDC4;
+    }
+
+    .title_tool h3 {
+        background-color: #333;
+        border: white solid 2px;
+        padding: 0.3em 0.6em 0.3em 0.6em;
+        font-size: 2.8em;
+    }
+
+@media(max-width:720px) {
+    .info_tool {
+        margin-top: 3em;
+    }
+
+        .title_tool h3 {
+            font-size: 2.6em;
+        }
+}
+
+@media(max-width:599px) {
+    .info_tool {
+        margin-top: 2em;
+    }
+
+        .title_tool h3 {
+            font-size: 2.4em;
+        }
+}
+
+.main_doc_info {
+    margin-left: 24em;
+    margin-right: 24em;
+}
+
+    .sous_doc_info h3 {
+        background-color: #464646;
+        border: white solid 2px;
+        padding: 0.3em 0.6em 0.3em 0.6em;
+        margin-top: 2em;
+        color: #4ECDC4;
+        font-size: 2em; 
+    }
+
+    .sous_doc_info h4 {
+        margin-top: 2em;
+        color: #51a5e5;
+        font-size: 1.7em; 
+    }
+
+    .sous_doc_info p {
+        font-size: 1.5em;
+    }
+
+@media(max-width:1500px) {
+    .main_doc_info {
+        margin-left: 6em;
+        margin-right: 6em;
+    }
+}
+
+@media(max-width:1100px) {
+    .main_doc_info {
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+}
+
+@media(max-width:720px) {
+    .main_doc_info {
+        margin-left: 4em;
+        margin-right: 4em;
+    }
+
+        .sous_doc_info h3 {
+            font-size: 1.9em; 
+        }
+
+        .sous_doc_info h4 {
+            color: #51a5e5;
+            font-size: 1.6em; 
+        }
+
+        .sous_doc_info p {
+            font-size: 1.3em;
+        }
+}
+
+@media(max-width:599px) {
+    .main_doc_info {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+        
+        .sous_doc_info h3 {
+            font-size: 1.7em; 
+        }
+
+        .sous_doc_info h4 {
+            color: #51a5e5;
+            font-size: 1.4em; 
+        }
+
+        .sous_doc_info p {
+            font-size: 1.2em;
+        }
+}
+
+.for_img_small {
+    border-radius: 7%;
+    width: 8em;
+    height: auto;
+}
+
+.for_img_medium {
+    border-radius: 7%;
+    width: 25em;
+    height: auto;
+}
+
+.for_img_big {
+    border-radius: 7%;
+    width: 45em;
+    height: auto;    
+}
+
+@media(max-width:720px) {
+    .for_img_small {
+        width: 7em;
+    }
+    
+    .for_img_medium {
+        width: 20em;
+    }
+    
+    .for_img_big {
+        width: 30em;
+    }
+}
+
+@media(max-width:599px) {
+    .for_img_small {
+        width: 5em;
+    }
+    
+    .for_img_medium {
+        width: 15em;
+    }
+    
+    .for_img_big {
+        width: 20em;
+    }
+}
+
+@media(max-width:599px) {
+    .for_img_medium {
+        width: 14em;
+    }
+    
+    .for_img_big {
+        width: 18em;
+    }
+}
+
+
+
+/* ##### Animation Effect ##### */
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+    }
+    @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+} 
+
+.opacityEffect {
+    animation-name: opacity;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-in-out;
+    }
+    @keyframes opacity {
+        from {
+          opacity: 0;
+        }
+        
+        to {
+          opacity: 1;
+        }
+}

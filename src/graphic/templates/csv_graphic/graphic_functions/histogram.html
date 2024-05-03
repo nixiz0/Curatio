@@ -1,0 +1,19 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Build Histogram {% endblock %}
+
+{% block content %}
+    <div class="graphic_logo">
+        <img src="{% static 'ressources/histogram_logo.png' %}" alt="">
+    </div>
+
+    <label for="{{ form.column.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Columns name sep by ','">
+    <br>
+    <button class="btn_submit" type="submit">Build</button>
+{% endblock %}

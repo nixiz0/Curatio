@@ -1,0 +1,32 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Shapiro Wilk {% endblock %}
+
+{% block content %}
+    <div class="graph_explain">
+        <h3>Graphic Explication :</h3>
+        <p>
+            <b style="color: #008000;">Green bars</b> indicate that the distribution of the corresponding variable is 
+            <b style="color: #008000;">considered normal</b>. 
+            <br>
+            <b style="color: #00b3ffff;">p-value of normality test is > 0.05</b>
+            <br>
+            null hypothesis (that the distribution isn't normal) is rejected.
+        </p>
+        <p>
+            <b style="color: red;">Red bars</b> indicate that the distribution of the corresponding variable 
+            <b style="color: red;">isn't considered normal</b>. 
+            <br>
+            <b style="color: #00b3ffff;">p-value of normality test is < 0.05</b>
+            <br>
+            null hypothesis (that the distribution is normal) is rejected.
+        </p>
+    </div>
+    <label for="{{ form.csv_file.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="btn_submit" type="submit" value="Upload">
+{% endblock %}

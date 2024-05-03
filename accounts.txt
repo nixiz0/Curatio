@@ -1,0 +1,14 @@
+Admin Account : 
+Email: admin@admin.com
+Firstname: admin
+Lastname: admin
+Country: FR
+Password: admin777
+
+
+Classic Account :
+Email: user@user.com
+Firstname: user
+Lastname: user
+Country: FR
+Password: user777#

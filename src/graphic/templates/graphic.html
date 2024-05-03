@@ -1,0 +1,122 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Graphic {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/graphic.css' %}">
+
+    <div class="upload_btn">
+        <a href="{% url 'graphic_upload_csv' %}">
+            <img src="{% static 'ressources/upload-logo.png' %}" alt="upload logo csv file">
+        </a>
+    </div>  
+
+    <div class="graphic_logo">
+        <img src="{% static 'ressources/graphic_logo.png' %}" alt="graphic logo">
+    </div>
+    <div class="graphic_title">
+        <h1>Graphic</h1>
+    </div>
+
+    {% if not file_name %}
+        <div>
+            <div class="need_import">
+                <img src="{% static 'ressources/attention_logo.png' %}" alt="attention logo">
+                <h3>Import your CSV File to see overall graphs of your data</h3>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="graphic_main">
+        {% if file_name %}
+            <div class="title_graphic_csv">
+                <h2>{{ file_name }}</h2>
+            </div>
+
+            <div class="graphic_img">
+                <h3>Distribution types columns</h3>
+                <img class="graphic_img_pie" src="data:image/png;base64,{{ img_pie }}" alt="Pie Matplotlib">
+            </div>
+            <div class="graphic_img">
+                <h3>Histogram numeric columns</h3>
+                <img class="graphic_img_hist" src="data:image/png;base64,{{ img_hist }}" alt="Histogram Matplotlib">
+            </div>
+            <div class="graphic_img">
+                <h3>Heatmap Correlation</h3>
+                <img class="graphic_img_heat" src="data:image/png;base64,{{ img_heatmap64 }}" alt="Heatmap Seaborn">
+            </div>
+            <div class="graphic_img">
+                <h3>Boxplot</h3>
+                <img class="graphic_img_box" src="data:image/png;base64,{{ img_boxplot }}" alt="Boxplot Matplotlib">
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="graphic_tools">
+        <div class="graphic_title">
+            <h1>Graphic Tools</h1>
+        </div>
+        <div class="btn_container">
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'histogram' %}"><img src="{% static 'ressources/histogram_logo.png' %}" alt="histogram logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Histogram</span>
+            </div>
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'scatter'%}"><img src="{% static 'ressources/scatter_logo.png' %}" alt="scatter logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Scatter</span>
+            </div>
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'boxplot' %}"><img src="{% static 'ressources/boxplot_logo.png' %}" alt="boxplot logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Boxplot</span>
+            </div>
+        </div>
+        <div class="btn_container">
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'pie' %}"><img src="{% static 'ressources/pie_logo.png' %}" alt="pie logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Pie</span>
+            </div>
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'heatmap' %}"><img src="{% static 'ressources/heatmap_logo.png' %}" alt="heatmap logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Heatmap</span>
+            </div>
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'violin' %}"><img src="{% static 'ressources/violin_logo.png' %}" alt="violin logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Violin</span>
+            </div>
+        </div>
+        <div class="btn_container">
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'butterfly' %}"><img src="{% static 'ressources/butterfly_logo.png' %}" alt="butterfly logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Butterfly</span>
+            </div>
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'stem' %}"><img src="{% static 'ressources/stem_logo.png' %}" alt="stem logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Stem</span>
+            </div>
+            <div class="sous_btn_container">
+                <div class="graphic_btn">
+                    <a href="{% url 'bar_chart' %}"><img src="{% static 'ressources/bar_chart_logo.png' %}" alt="bar chart logo"></a>
+                </div>
+                <span class="txt_graphic_btn">Bar chart</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}

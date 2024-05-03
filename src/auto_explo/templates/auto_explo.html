@@ -1,0 +1,24 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Auto Exploratory {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/auto_explo.css' %}">
+
+    <div class="main_auto_explo">
+        <div class="auto_explo_logo">
+            <img src="{% static 'ressources/auto_explo_logo.png' %}" alt="auto explo logo">
+        </div>
+        <div class="auto_explo_title">
+            <h1>Auto-Explo</h1>
+        </div>
+        <div class="btn_auto_explo">
+            <a href="{% url 'ydata_explo' %}">ydata-profiling</a>
+        </div>
+        <div class="btn_auto_explo">
+            <a href="{% url 'sweetviz_explo' %}">sweetviz-report</a>
+        </div>
+    </div>
+{% endblock %}

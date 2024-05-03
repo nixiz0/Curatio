@@ -1,0 +1,19 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Reversed Order {% endblock %}
+
+{% block content %}
+    <div class="main_logo">
+        <img src="{% static 'ressources/reversed_order_logo.png' %}" alt="">
+    </div>
+
+    <label for="{{ form.column.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column">
+    <br>
+    <button class="btn_submit" type="submit">Reversed-Order</button>
+{% endblock %}

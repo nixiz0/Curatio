@@ -1,0 +1,17 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Chi Square {% endblock %}
+
+{% block content %}
+    <label for="{{ form.csv_file.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column 1">
+    <br>
+    <input class="input_user" type="text" name="{{ form.column2.name }}" placeholder="Name column 2">
+    <br>
+    <input class="btn_submit" type="submit" value="Upload">
+{% endblock %}

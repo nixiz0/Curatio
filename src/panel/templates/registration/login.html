@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/authentification-icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Curatio Login</title>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <h1 class="title-form">Login</h1>
+
+        <div class="img-form">
+            <img src="{% static 'ressources/curatio-icon.png' %}" alt="curatio icon">
+        </div>
+        {{ form.as_p }}
+        <div type="button" id="togglePassword">
+            <img class="eye_password" src="{% static 'ressources/eye_password.png' %}" alt="">
+        </div>
+        <br><br>
+        <input type="submit" value="Connection">
+    </form>
+
+    <script src="{% static 'js/show_password.js' %}"></script>
+
+</body>
+</html>

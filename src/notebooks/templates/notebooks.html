@@ -1,0 +1,26 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Notebooks {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/notebooks.css' %}">
+
+    <div class="main_notebooks">
+        <div class="title_notebooks"> 
+            <h1>Notebooks Pre-Filled</h1>
+        </div>
+
+        <div class="all_btn_notebooks"> 
+            <form class="form_notebooks" action="{% url 'classic_notebooks' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <button class="btn_notebooks" type="submit">Classic Notebooks</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

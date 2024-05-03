@@ -1,0 +1,18 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Missing By Define {% endblock %}
+
+{% block content %}
+    <h4 style="text-decoration: underline;">Replace Missing By Define Value</h4>
+    <label for="{{ form.column.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column">
+    <br>
+    <input class="input_user" type="text" name="{{ form.value.name }}" placeholder="Enter value">
+    <br>
+    <button class="btn_submit" type="submit">Define</button>
+{% endblock %}

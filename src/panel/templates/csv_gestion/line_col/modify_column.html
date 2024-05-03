@@ -1,0 +1,21 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Modify Column {% endblock %}
+
+{% block content %}
+    <div class="main_logo">
+        <img src="{% static 'ressources/modify_columns_logo.png' %}" alt="">
+    </div>
+
+    <label for="{{ form.column.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column">
+    <br>
+    <input class="input_user" type="text" name="{{ form.new_column_name.name }}" placeholder="Name new column">
+    <br>
+    <button class="btn_submit" type="submit">Modify</button>
+{% endblock %}

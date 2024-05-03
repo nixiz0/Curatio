@@ -1,0 +1,118 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Profile {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/profile_user.css' %}">
+    <main>
+        <div class="main_profile">
+            <div class="sous_profile">
+                <img src="{% static 'ressources/name_profile_logo.png' %}" alt="">
+                <div class="title">
+                    <h1>Profile</h1>
+                </div>
+                <div class="info_user">
+                    <div class="sous_info_user">
+                        <label for="{{ user.firstname.name }}">Firstname</label>
+                        <div class="info">
+                            {{ user.firstname }}
+                        </div>
+                    </div>
+                    <div class="sous_info_user">
+                        <label for="{{ user.lastname.name }}">Lastname</label>
+                        <div class="info">
+                            {{ user.lastname }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sous_profile">
+                <img class="country_email" src="{% static 'ressources/country_profile_logo.png' %}" alt="">
+                <div class="info_user">
+                    <div class="sous_info_user">
+                        <label for="{{ user.country.name }}">Country</label>
+                        <div class="info">
+                            {{ user.country }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sous_profile">
+                <img class="country_email" src="{% static 'ressources/email_profile_logo.png' %}" alt="">
+                <div class="info_user">
+                    <div class="sous_info_user">
+                        <label for="{{ user.email.name }}">Email</label>
+                        <div class="info">
+                            {{ user.email }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form method="post">
+            <div class="logo_profile">
+                <img src="{% static 'ressources/logo_user_profile.png' %}" alt="logo user profile">
+            </div>
+    
+            <div class="title">
+                <h1>Edit Profile</h1>
+            </div>
+            {% csrf_token %}
+            <div class="form_container">
+                <div class="form_input">
+                    <label for="{{ form.firstname.name }}">Firstname</label>
+                    <div>
+                        {{ form.firstname }}
+                    </div>
+                </div>
+                <div class="form_input">
+                    <label for="{{ form.lastname.name }}">Lastname</label>
+                    <div>
+                        {{ form.lastname }}
+                    </div>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_input">
+                    <label for="{{ form.country.name }}">Country</label>
+                    <div>
+                        {{ form.country }}
+                    </div>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_input">
+                    <label for="{{ form.email.name }}">Email</label>
+                    <div>
+                        <input style="background-color: gray;" type="email" name="email" value="{{ user.email }}" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_input">
+                    <label for="{{ form.password1.name }}">Password</label>
+                    <div>
+                        {{ form.password1 }}
+                    </div>
+                </div>
+            </div>
+            <div class="form_container">
+                <div class="form_input">
+                    <label for="{{ form.password2.name }}">Confirmation Password</label>
+                    <div>
+                        {{ form.password2 }}
+                    </div>
+                </div>
+            </div>
+            <div class="form_submit">
+                <input type="submit" value="Save">
+            </div>
+            <div class="form_cancel">
+                <a href="{% url 'panel' %}">Cancel</a>
+            </div>
+        </form>
+    </main>
+{% endblock %}

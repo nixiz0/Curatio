@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/authentification-icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Curatio Register</title>
+</head>
+<body>
+    
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="{{ form.lastname.id_for_label }}">Lastname</label>
+            {{ form.lastname }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.firstname.id_for_label }}">Firstname</label>
+            {{ form.firstname }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.country.id_for_label }}">Country</label>
+            {{ form.country }}
+        </div>
+    
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            <div type="button" id="togglePassword">
+                <img class="eye_password" src="{% static 'ressources/eye_password.png' %}" alt="">
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">Password confirmation</label>
+            {{ form.password2 }}
+        </div>
+    
+        <input type="submit" value="Register">
+    </form> 
+
+    <script src="{% static 'js/show_password.js' %}"></script>
+
+</body>
+</html>

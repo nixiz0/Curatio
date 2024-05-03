@@ -1,0 +1,74 @@
+.main_auto_explo {
+    text-align: center;
+    margin-top: 5em;
+    margin-bottom: 4em;
+}
+
+.auto_explo_logo {
+
+}
+
+    .auto_explo_logo img {
+        width: 12.5em;
+        height: auto;
+    }
+
+.auto_explo_title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+    .auto_explo_title h1 {
+        padding: 0.4em;
+        background-color: #761a1a;
+        border: solid 4px white;
+        text-shadow: 0px 0px 5px #0000003a;
+        -webkit-box-shadow: 7px 2px 7px 5px rgba(0,0,0,0.15); 
+        box-shadow: 7px 2px 7px 6px rgba(0,0,0,0.15);
+    }
+
+@media(max-width:750px) {
+    .auto_explo_title {
+        font-size: 1.1em;
+    }
+}
+
+@media(max-width:599px) {
+    .auto_explo_title {
+        font-size: 1em;
+    }
+}
+
+.btn_auto_explo {
+    padding: 1em;
+}
+
+.btn_auto_explo a {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 1.8em;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #d90429;
+    color: #d90429;
+  }
+
+  .btn_auto_explo a:hover {
+    background: #d90429;
+    color: #fff;
+  }
+
+  .btn_auto_explo a:active {
+    font-size: 1.7em;
+  }
+

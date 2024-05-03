@@ -1,0 +1,13 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Email Scrapper {% endblock %}
+
+{% block content %}
+    <label for="url">Email Scrapping :</label>
+    <br>
+    <input class="input_user" type="text" name="url" placeholder="Url website" required>
+    <br>
+    <button class="btn_submit" type="submit">Scrap</button>
+{% endblock %}

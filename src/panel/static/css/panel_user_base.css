@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+body {
+    margin-left: 10em;
+    background-color: #264653;
+    color: white;
+}
+
+@media (max-width:599px) {
+    body {
+        margin-left: 2em;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #717171; /* Background color of the thumb (the sliding part) */
+    border-radius: 4px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: #464646; /* Background color of the track */
+}
+
+.navbar {
+    -webkit-box-shadow: 7px 2px 7px 5px rgba(0,0,0,0.15); 
+    box-shadow: 7px 2px 7px 5px rgba(0,0,0,0.15);
+    overflow-y: auto;
+    width: 250px;
+    height: 100%;
+    background-color: #4ECDC4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: left 0.3s;
+}
+
+.expand_icon_logo {
+    text-align: right;
+}
+
+    .expand_icon_logo img {
+        padding: 0.5em;
+        width: 2.5em;
+        height: auto;
+    }
+
+    .expand_icon_logo img:active {
+        width: 2.55em;
+    }
+  
+.logo-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.href-container {
+    text-shadow: 1px 3px 4px rgba(0,0,0,0.45);
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+    .href-container a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.3em;
+    }
+
+    .href-container a:hover {
+        text-decoration: underline;
+        color: rgba(255, 255, 255, 0.656);
+    }
+
+#logo {
+    width: 80px;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav-list {
+    text-shadow: 1px 3px 4px rgba(0,0,0,0.45);
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-list li {
+    padding: 15px;
+    text-align: center;
+}
+
+.nav-list a li {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-list li:hover {
+    background-color: #264653;
+}
+
+
+@media(max-width:599px) {
+.navbar {
+    width: 222px;
+}
+
+    .expand_icon_logo img {
+        padding: 0.2em;
+        width: 1.5em;
+    }
+
+    .expand_icon_logo img:active {
+        width: 1.55em;
+    }
+
+    .href-container a {
+        font-size: 1.2em;
+    }
+
+    .nav-list {
+        font-size: 1.1em;
+    }
+}
+
+
+
+/* ##### Animation Effect ##### */
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    }
+    @-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+    }
+    @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+} 
+
+.fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+    }
+    @keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+} 

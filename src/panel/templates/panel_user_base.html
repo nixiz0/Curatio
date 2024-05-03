@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/icon/panel-curatio-logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/panel_user_base.css' %}">
+    <title>
+        {% block title %} 
+            Curatio
+        {% endblock %}
+    </title>
+    </head>
+<body>
+    {% if user.is_authenticated %}
+    <div class="navbar fadeInLeft">
+        <div class="expand_icon_logo" id="expand-icon">
+            <img src="{% static 'ressources/arrow_navbar.png' %}" alt="Expand arrow navbar" id="expand-image">
+        </div>
+        <div class="logo-container">
+            <a href="{% url 'user-profile' %}">
+              <img src="{% static 'ressources/curatio-user-profile.png' %}" alt="curatio logo" id="logo">
+            </a>
+        </div>
+        <div class="href-container">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        <ul class="nav-list">
+          <a href="{% url 'panel' %}"><li>Panel</li></a>
+          <a href="{% url 'graphic' %}"><li>Graphic</li></a>
+          <a href="{% url 'statistic' %}"><li>Statistic</li></a>
+          <a href="{% url 'converter' %}"><li>Converter</li></a>
+          <a href="{% url 'scrapper' %}"><li>Scrapper</li></a>
+          <a href="{% url 'auto_explo' %}"><li>Auto-Explo</li></a>
+          <a href="{% url 'notebooks' %}"><li>Notebooks</li></a>
+        </ul>
+        <ul class="nav-list">
+            <a href="{% url 'documentation' %}"><li>Documentation</li></a>
+            <a href="{% url 'credits' %}"><li>Credits</li></a>
+        </ul>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="{% static 'js/panel_nav.js' %}"></script>
+
+    
+    {% else %}
+        <div style="text-align: center;">
+            <h1 >You Need to Register or Login to access on this page</h1>
+            <a href="{% url 'register' %}">Register</a>
+            <br>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    {% endif %}
+</body>
+</html>

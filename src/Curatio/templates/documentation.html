@@ -1,0 +1,591 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/curatio-doc-icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/documentation.css' %}">
+    <title>Curatio Documentation</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div class="opacityEffect" id="navbar">
+            <div class="nav_doc">
+                <a href="{% url 'panel' %}"><img src="{% static 'ressources/panel-curatio.png' %}" alt=""></a>
+            </div>
+            <div class="sous_nav_doc">
+                <div class="nav_info">
+                    <a href="#panel">panel</a>
+                </div>
+                <div class="nav_info">
+                    <a href="#graphic">graphic</a>
+                </div>
+                <div class="nav_info">
+                    <a href="#statistic">statistic</a>
+                </div>
+                <div class="nav_info">
+                    <a href="#converter">converter</a>
+                </div>
+                <div class="nav_info">
+                    <a href="#scrapper">scrapper</a>
+                </div>
+                <div class="nav_info">
+                    <a href="#auto-explo">auto-explo</a>
+                </div>
+                <div class="nav_info">
+                    <a href="#notebooks">notebooks</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc_intro fadeInUp">
+            <h1>Curatio</h1>
+            <h2>Documentation</h2>
+            <img src="{% static 'ressources/doc_logo.png' %}" alt="logo documentation">
+        </div>
+
+        <div class="info_tool">
+            <div class="title_tool" id="panel">
+                <h3>Panel</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <p>When you arrive on some pages you will have this message :</p>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_alert_import.png' %}" alt="">
+                    <p>
+                        Don't worry, this is to let you know that <b style="color: #0084ff;">you need to import a csv file</b> 
+                        to be able to view and analyze it.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h3>How to import a file on the page ?</h3>
+                    <p>On the <b style="color: #0084ff;">top right panel</b> page you have this logo :</p>
+                    <img class="for_img_small" src="{% static 'ressources/img_illu_doc/illu_logo_upload.png' %}" alt=""> 
+                    <p>
+                        This button will <b style="color: #0084ff;">redirect</b> you into 
+                        an <b style="color: #0084ff;">upload page</b>.
+                    </p>
+                    <p>On this page you will be able to upload your csv file.</p>
+                    <br>
+                </div>
+                <div class="sous_doc_info">
+                    <p>
+                        Once your file has been imported, you will have access to several 
+                        <b style="color: #0084ff;">analytical functions</b> :
+                    </p>
+                    <p>You can view a sample of your data (<b style="color: #2fbf0b;">the first 50 rows</b>)</p>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_good_upload.png' %}" alt="">
+                    <p>
+                        You can see which columns have <b style="color: #b30b05;">missing values</b> 
+                        and <b style="color: #b30b05;">how many</b> :
+                    </p>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_good_miss_val.png' %}" alt="">
+                    <p>
+                        You can see which columns are <b style="color: #aa00ff;">object types</b>  
+                        (therefore not numeric)
+                        <br>
+                        which you can convert later :
+                    </p>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_good_transfo_var.png' %}" alt="">
+                </div>
+                <div class="sous_doc_info">
+                    <h3>Lines & Columns</h3>
+                    <p>
+                        Explanation of how the <b style="color: #0084ff;">manipulation of rows and columns</b> 
+                        works in <b style="color: #4ECDC4;">Curatio</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">For each button you will need to choose the file you want to import</b>
+                    </p>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_lines_cols.png' %}" alt="">
+                    <h4>Columns Buttons</h4>
+                    <p>
+                        <b style="color: #b30b05;">Del-Col</b> allows you to <b style="color: #b30b05;">delete columns</b>, 
+                        after uploading your file on the page 
+                        you <b style="color: #0084ff;">put the name of the column(s)</b> you want 
+                        to delete (separated by a comma only, no need space between names) 
+                    </p>
+                    <p>
+                        <b style="color: #4ECDC4;">Add-Col</b> allows you to 
+                        <b style="color: #4ECDC4;">add columns</b>, 
+                        you <b style="color: #0084ff;">put the name of the column(s)</b> you want to add.
+                    </p>
+                    <p>
+                        <b style="color: #8f8f8f;">Modify-Col</b> allows you to 
+                        <b style="color: #8f8f8f;">modify column</b>, 
+                        you <b style="color: #0084ff;">put the name of the column</b> you want to
+                        modify and on the input below you enter the <b style="color: #0084ff;">new column name</b>.
+                    </p>
+                    <br>
+                    <h4>Rows Buttons</h4>
+                    <p>
+                        <b style="color: #b30b05;">Del-Row</b> allows you to 
+                        <b style="color: #b30b05;">delete rows</b>, 
+                        after uploading your file on the page 
+                        you put the number of <b style="color: #0084ff;">starting, ending interval</b> 
+                        and this will <b style="color: #b30b05;">delete all the rows</b> 
+                        that are in this range.
+                    </p>
+                    <p>
+                        <b style="color: #4ECDC4;">Add-Row</b> allows you to 
+                        <b style="color: #4ECDC4;">add rows</b>, 
+                        you put the name of the column, the number of 
+                        <b style="color: #0084ff;">starting, 
+                        ending interval</b> and the 
+                        <b style="color: #4ECDC4;">value you want to add</b>.
+                    </p>
+                    <p>
+                        <b style="color: #8f8f8f;">Modify-Row</b> allows 
+                        you to <b style="color: #8f8f8f;">modify rows of a column</b>, 
+                        it works the same as adding lines but here the modification will just 
+                        <b style="color: #0084ff;">overwrite the lines to replace with the new value</b>.
+                    </p>
+                    <br>
+                    <h4>Interval Buttons</h4>
+                    <p>
+                        <b style="color: #c86a0c">Interval</b> allows you to 
+                        <b style="color: #0084ff;">put the name of a column and then specify a starting and ending interval</b>, 
+                        and this will allow you to 
+                        retrieve only what is in your 
+                        <b style="color: #c86a0c">interval within your rows</b>.
+                    </p>
+                    <p>
+                        Example : if you put the starting interval 1 and the ending nothing, in a column 
+                        which in all its lines begins with 'hello' then you will only get 'ello'.
+                    </p>
+                    <br>
+                    <h4>OrderBy Buttons</h4>
+                    <p>
+                        You must put the name of the column
+                        you want to sort and either use the 
+                        <b style="color: #0084ff;">OrderBy</b> 
+                        button which sorts in ascending order or the 
+                        <b style="color: #0084ff;">ReverseOrder</b> 
+                        which sorts in descending order.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h3>Missing Values</h3>
+                    <p>
+                        Explanation of how the
+                        <b style="color: #4ECDC4;">manipulation of missing values</b> 
+                        buttons works in <b style="color: #4ECDC4;">Curatio</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">
+                            For each button you will need to choose the file you want to import.
+                        </b>
+                    </p>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_miss_val.png' %}" alt="">
+                    <h4>Mean Button</h4>
+                    <p>
+                        You have to put the name of the column which has
+                        missing values and it will automatically 
+                        <br>
+                        <b style="color: #0084ff;">replace the missing values with the average</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">You must only put the columns which have numerical values</b>
+                    </p>
+                    <h4>Median Button</h4>
+                    <p>
+                        You must put the name of the column which has 
+                        missing values and this will automatically
+                        <br> 
+                        <b style="color: #0084ff;">replace missing values with the median</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">You must only put the columns which have numerical values</b>
+                    </p>
+                    <h4>Standard Deviation Button</h4>
+                    <p>
+                        You must put the name of the column which 
+                        has missing values and this will automatically 
+                        <br>
+                        <b style="color: #0084ff;">replace missing values with the standard deviation</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">You must only put the columns which have numerical values</b>
+                    </p>
+                    <h4>Delete Button</h4>
+                    <p>
+                        You must put the name of the column which 
+                        has missing values and this will automatically 
+                        <br>
+                        <b style="color: #0084ff;">delete rows who contains missing values</b>.
+                    </p>
+                    <h4>Define Value Button</h4>
+                    <p>
+                        You must put the name of the column and enter 
+                        the value with which you want to 
+                        <br>
+                        <b style="color: #0084ff;">replace the missing value</b>.
+                    </p>
+                    <h4>Mode Button</h4>
+                    <p>
+                        You have to put the name of the column which 
+                        has missing values and it will automatically 
+                        <br>
+                        <b style="color: #0084ff;">replace the missing values with the mode</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">You must only put the columns which have categorical values</b>
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h3>Transformation Variables</h3>
+                    <p>
+                        Explanation of how the 
+                        <b style="color: #4ECDC4;">manipulationof of transformation variables</b> 
+                        buttons works in <b style="color: #4ECDC4;">Curatio</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">
+                            For each button you will need to choose the file you want to import
+                        </b>
+                    </p>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_transfo_var.png' %}" alt="">
+                    <h4>OneHot Button</h4>
+                    <p>
+                        You have to put the name of the column which has
+                        <b style="color: #0084ff;">categorical values</b> 
+                        and it will automatically 
+                        <br>
+                        <b style="color: #0084ff;">encoding by one hot all the categorical values</b>.
+                    </p>
+                    <p>
+                        <b style="color: #b30b05;">
+                            You must only put the columns which have categorical values for encoding
+                        </b>
+                    </p>
+                    <h4>Fusion Button</h4>
+                    <p>
+                        You must put the name of the
+                        <b style="color: #0084ff;">first column and then the second</b> 
+                        that you want to merge and finally you 
+                        <br>
+                        <b style="color: #0084ff;">put the name of the column that the merge column will have</b>.
+                    </p>
+                    <h4>Label Encoder Button</h4>
+                    <p>
+                        You have to put the name of the 
+                        <b style="color: #0084ff;">column which has categorical values</b> and it 
+                        will automatically 
+                        <br>
+                        <b style="color: #0084ff;">encoding by label encoding all the categorical values</b>.
+                    </p>
+                    <p>
+                        <b style="color: #4ECDC4;">Advice</b> : 
+                        if you have more than 2 different values 
+                        <b style="color: #b30b05;">don't use the label encoder</b>  
+                        but rather the <b style="color: #4ea9fd;">one hot encoding</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="info_tool">
+            <div class="title_tool" id="graphic">
+                <h3>Graphic</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <h3>Graphic Analysis</h3>
+                    <h4>Distribution Types</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_graph_distrib_types.png' %}" alt=""> 
+                    <p>
+                        This is a <b style="color: #0084ff;">distribution graph</b> 
+                        allowing you to see the 
+                        <br>
+                        <b style="color: #0084ff;">distribution of types</b>  
+                        of the imported csv file.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h4>Histogram Analysis</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_graph_histogram.png' %}" alt=""> 
+                    <p>
+                        This is an <b style="color: #0084ff;">histogram</b> 
+                        allowing you to see the 
+                        <br>
+                        <b style="color: #0084ff;">frequency of numeric columns</b>  
+                        of the imported csv file.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h4>Heatmap Analysis</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_graph_heatmap.png' %}" alt=""> 
+                    <p>
+                        This is an <b style="color: #0084ff;">heatmap</b> 
+                        allowing you to see the 
+                        <br>
+                        <b style="color: #0084ff;">correlations between the numeric columns</b>  
+                        of the imported csv file.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h4>Boxplot Analysis</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_graph_boxplot.png' %}" alt=""> 
+                    <p>
+                        This is a <b style="color: #0084ff;">boxplot</b> 
+                        allowing you to see the 
+                        <br>
+                        <b style="color: #0084ff;">boxplot of the numeric columns</b>  
+                        of the imported csv file.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h3>Graphic Tools</h3>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_graphic_tools.png' %}" alt=""> 
+                    <h4>Histogram</h4>
+                    <p>
+                        You can create <b style="color: #0084ff;">histograms</b>, in label y 
+                        there will be the frequency and in x the values of the column you entered.
+                    </p>
+                    <p>
+                        You can put <b style="color: #4ECDC4;">several numeric column names</b> 
+                        and this will <b style="color: #4ECDC4;">download a zip file with all your graphics</b>.
+                    </p>
+                    <h4>Scatter Plot</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">scatter plot</b>,
+                        you must enter <b style="color: #4ECDC4;">2 numeric column names </b> 
+                        (separated by a comma without space) and it will 
+                        make a <b style="color: #4ECDC4;">scatter plot of your 2 columns</b>, 
+                        one in x and the other in y.
+                    </p>
+                    <h4>BoxPlot</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">boxplot</b>,
+                        you must enter <b style="color: #4ECDC4;">numeric column names </b> 
+                        you can put one or more column names and it will 
+                        make a <b style="color: #4ECDC4;">boxplot of each columns</b>, 
+                        if you put several numeric column names 
+                        you will have a <b style="color: #4ECDC4;">zip file download with all your boxplots</b>.
+                    </p>
+                    <h4>Pie</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">pie</b>,
+                        you can enter one or several <b style="color: #4ECDC4;">column names </b> 
+                        and it will build you a 
+                        <b style="color: #4ECDC4;">Pie chart of your columns and their values</b>.
+                    </p>
+                    <h4>Heatmap</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">pie</b>,
+                        you must enter several <b style="color: #4ECDC4;">numeric column names </b> 
+                        and it will build you a 
+                        <b style="color: #4ECDC4;">Heatmap of correlation between your columns</b>.
+                    </p>
+                    <h4>Violin</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">violin</b>,
+                        you can enter one or several <b style="color: #4ECDC4;">numeric column names </b> 
+                        and it will build you a 
+                        <b style="color: #4ECDC4;">Violin graph for your columns</b>.
+                    </p>
+                    <h4>Butterfly</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">butterfly graph</b>,
+                        you must enter 2 <b style="color: #4ECDC4;">column names </b> 
+                        and it will build you a 
+                        <b style="color: #4ECDC4;">Butterfly graph for your 2 columns</b>.
+                    </p>
+                    <h4>Stem</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">stem graph</b>,
+                        you must enter 2 <b style="color: #4ECDC4;">column names </b> 
+                        and it will build you a 
+                        <b style="color: #4ECDC4;">Stem graph for your 2 columns</b>.
+                    </p>
+                    <h4>Bar Chart</h4>
+                    <p>
+                        You can create a <b style="color: #0084ff;">bar chart</b>,
+                        you can enter one or several <b style="color: #4ECDC4;">column names </b>.
+                        <br>
+                        In label y you will have counts and on x your values for your column.
+                        <br>
+                        If you put several column names 
+                        you will have a <b style="color: #4ECDC4;">zip file download with all your bar charts</b>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="info_tool">
+            <div class="title_tool" id="statistic">
+                <h3>Statistic</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <h3>Statistic Analysis</h3>
+                    <h4>Describe Statistic</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_stat_good_upload.png' %}" alt=""> 
+                    <p>
+                        You can see a quick <b style="color: #0084ff;">statistical tour of your data</b>.
+                    </p>
+                    <h4>Graphic Statistic</h4>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_stat_hist_box.png' %}" alt=""> 
+                    <p>
+                        You can see a some <b style="color: #0084ff;">statistic graph of your data</b>.
+                        <br>
+                        You can choose the <b style="color: #0084ff;">numeric column histogram and boxplot</b> 
+                        in the drop-down list.
+                    </p>
+                    <h4>Quartiles</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_stat_quartiles.png' %}" alt=""> 
+                    <p>
+                        You can see quartiles distribution of your 
+                        <b style="color: #0084ff;">numeric columns</b>.
+                    </p>
+                    <h4>Mean & Std</h4>
+                    <img class="for_img_big" src="{% static 'ressources/img_illu_doc/illu_stat_mean_std.png' %}" alt=""> 
+                    <p>
+                        You can see mean and standard deviation distribution of your 
+                        <b style="color: #0084ff;">numeric columns</b>.
+                    </p>
+                    <h4>Min & Max</h4>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_stat_min_max.png' %}" alt=""> 
+                    <p>
+                        You can see the min and the max values of your 
+                        <b style="color: #0084ff;">numeric columns</b>.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h3>Statistic Tools</h3>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_stat_tools.png' %}" alt=""> 
+                    <h4>PCA</h4>
+                    <p>
+                        You can do a <b style="color: #0084ff;">PCA of your data</b>.
+                        <br>
+                        This normalizes your data and do a 
+                        <b style="color: #4ECDC4;">Principal Components Analysis</b>. 
+                    </p>
+                    <h4>Important-Features</h4>
+                    <p>
+                        You can do a 
+                        <b style="color: #0084ff;">important features selection of your data</b>.
+                        <br>
+                        It use a <b style="color: #4ECDC4;">RandomForest Features Importantes</b> 
+                        for the selections and return you
+                        a <b style="color: #0084ff;">statistic graphic of the most importants features</b>.
+                    </p>
+                    <h4>Chi-Square</h4>
+                    <p>
+                        You can do a 
+                        <b style="color: #0084ff;">Chi-Square Test of your data</b>.
+                        <br>
+                        Allows you to check the absence of a statistical link between two variables X and Y.
+                    </p>
+                    <h4>Shapiro-Wilk</h4>
+                    <p>
+                        You can do a 
+                        <b style="color: #0084ff;">Shapiro-Wilk Test of your data</b>.
+                        <br>
+                        Indicates whether a distribution follows a normal distribution or not.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="info_tool">
+            <div class="title_tool" id="converter">
+                <h3>Converter</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <h4>File-Converter</h4>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_converter_links_logo.png' %}" alt=""> 
+                    <p>
+                        Each image redirects to an 
+                        <b style="color: #0084ff;">online converter</b> 
+                        <br>
+                        to convert your files to csv so they can be used 
+                        <br>
+                        in the <b style="color: #4ECDC4;">Curatio app</b> for processing.
+                    </p>
+                </div>
+                <div class="sous_doc_info">
+                    <h4>Types-Converter</h4> 
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_converter_types.png' %}" alt=""> 
+                    <p>
+                        Each buttons redirects to a
+                        <b style="color: #0084ff;">types converter</b> 
+                        <br>
+                        to force the conversion for your columns types.
+                        <br>
+                        You have to put the column name that you want to types convert.
+                        <br>
+                        <b style="color: #b30b05;">Be careful when you want to force the conversion of a column type, 
+                        this can overwrite data !</b>
+                        <br>
+                        <b style="color: #b30b05;">Be sure of your conversion !</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="info_tool">
+            <div class="title_tool" id="scrapper">
+                <h3>Scrapper</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <h4>Scrapper-Tools</h4>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_scrapper_tools.png' %}" alt=""> 
+                    <p>
+                        To do some <b style="color: #0084ff;">web scrapping</b>, 
+                        you have to click on a button 
+                        and <b style="color: #0084ff;">put the URL of the target website</b>. 
+                        <br>
+                        It will you return a csv file with the scrapping data. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="info_tool">
+            <div class="title_tool" id="auto-explo">
+                <h3>Auto-Explo</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <h4>Auto-Explo-Tools</h4>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/illu_auto_explo_tools.png' %}" alt=""> 
+                    <p>
+                        You can do an <b style="color: #0084ff;">automatic exploratory</b> if you use 
+                        <b style="color: #b30b05;">ydata-profling</b> and an 
+                        <b style="color: #0084ff;">automatic dynamic visualization</b>
+                        if you use <b style="color: #b30b05;">sweetviz</b>.
+                        <br>
+                        Both will generated you an html file with the report of 
+                        the analysis of your data.
+                    </p>
+                </div>
+            </div>
+        <div class="info_tool">
+            <div class="title_tool" id="notebooks">
+                <h3>Notebooks</h3>
+            </div>
+            <div class="main_doc_info">
+                <div class="sous_doc_info">
+                    <h4>Notebooks Pre-Filled</h4>
+                    <img class="for_img_medium" src="{% static 'ressources/img_illu_doc/notebooks_prefilled.png' %}" alt=""> 
+                    <p>
+                        Pre-Filled Notebooks, will generated you a 
+                        <b style="color: #0084ff;">notebooks pre-filled</b> with 
+                        some librairies import, universal code etc
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="{% static 'js/doc_nav.js' %}"></script>
+
+    {% else %}
+        <div style="text-align: center;">
+            <h1 >You Need to Register or Login to access on this page</h1>
+            <a href="{% url 'register' %}">Register</a>
+            <br>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    {% endif %}
+</body>
+</html>

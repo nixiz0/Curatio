@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+body {
+    background-color: #292f36;
+    color: white;
+}
+
+nav {
+    text-shadow: 1px 3px 4px rgba(0,0,0,0.45);
+    text-align: center;
+}
+
+    nav a img {
+        text-shadow: 1px 3px 4px rgba(0,0,0,0.45);
+        width: 8em;
+        height: auto;
+        padding: 1em;
+    }
+
+    nav a img:active {
+        width: 7.8em;
+    }
+
+
+@media(max-width:599px) {
+    
+}
+
+.main_credits {
+    margin-left: 7em;
+    margin-right: 7em;
+    text-shadow: 1px 3px 4px rgba(0,0,0,0.45);
+    margin-top: 3em;
+    text-align: center;
+    font-size: 2.15em;
+}
+
+    .main_credits h2 {
+        color: #4ECDC4;
+    }
+
+    .main_credits img {
+        border-radius: 45%;
+        width: 5em;
+        height: auto;
+    }
+
+    .main_credits h3 {
+        font-size: 0.9em;
+    }
+    
+    .main_credits h4 {
+        color: #d90429;
+        font-size: 1em;
+    }
+
+    .main_credits p {
+        font-size: 0.8em;
+    }
+
+@media(max-width:850px) {
+.main_credits {
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-top: 2em;
+    font-size: 2em;
+}
+}
+
+@media(max-width:599px) {
+.main_credits {
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    font-size: 1.5em;
+}
+}
+
+footer {
+    text-align: center;
+    font-size: 1.3em;
+    padding: 0.5em;
+}
+
+    .img_footer a img {
+        width: 3.5em;
+        height: auto;
+        padding: 1em;
+    }
+
+@media(max-width:850px) {
+footer {
+    font-size: 1.2em;
+}
+
+    .img_footer a img {
+        width: 3.4em;
+        padding: 0.9em;
+    }
+}
+
+@media(max-width:599px) {
+footer {
+    font-size: 1em;
+}
+
+    .img_footer a img {
+        width: 3em;
+        padding: 1em;
+    }
+}
+
+
+
+/* ##### Animation Effect ##### */
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+    }
+    @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+} 
+
+.opacityEffect {
+    animation-name: opacity;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-in-out;
+    }
+    @keyframes opacity {
+        from {
+          opacity: 0;
+        }
+        
+        to {
+          opacity: 1;
+        }
+}

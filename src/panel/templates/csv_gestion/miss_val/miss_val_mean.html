@@ -1,0 +1,16 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Missing By Mean {% endblock %}
+
+{% block content %}
+    <h4 style="text-decoration: underline;">Replace Missing By Mean</h4>
+    <label for="{{ form.column.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column">
+    <br>
+    <button class="btn_submit" type="submit">Replace</button>
+{% endblock %}

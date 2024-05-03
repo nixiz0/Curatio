@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block title %}
+    Curatio Admin Panel
+{% endblock %}
+
+{% block branding %}
+    <h1>Curatio Admin Panel</h1>
+{% endblock %}
+
+{% block extrastyle %}
+    <style>
+        #header {
+            background-color: #4ECDC4;
+        }
+
+        #branding h1 {
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: #292f36;
+        }
+
+        #content h1 {
+            color: white;
+        }
+
+        #user-tools {
+            font-size: 1em;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}

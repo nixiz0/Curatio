@@ -1,0 +1,64 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Converter {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/converter.css' %}">
+
+    <div class="converter_logo">
+        <img src="{% static 'ressources/converter_logo.png' %}" alt="converter logo">
+    </div>
+    <div class="converter_title">
+        <h1>File-Converter</h1>
+    </div>
+
+    <div class="converter_tools">
+        <div class="converter">
+            <div class="sous_converter">
+                <a href="https://products.groupdocs.app/fr/conversion/sql-to-csv" target="_blank"><img src="{% static 'ressources/sql_csv.png' %}" alt=""></a>
+            </div>
+            <div class="sous_converter">
+                <a href="https://convertio.co/fr/xlsx-csv/" target="_blank"><img src="{% static 'ressources/xlsx_csv.png' %}" alt=""></a>
+            </div>
+        </div>
+        <div class="converter">
+            <div class="sous_converter">
+                <a href="https://data.page/json/csv" target="_blank"><img src="{% static 'ressources/json_csv.png' %}" alt=""></a>
+            </div>
+            <div class="sous_converter">
+                <a href="https://data.page/xml/csv" target="_blank"><img src="{% static 'ressources/xml_csv.png' %}" alt=""></a>
+            </div>
+        </div>
+
+        <div class="converter_title">
+            <h1>Types-Converter</h1>
+        </div>
+
+        <div class="converter">
+            <div class="type_converter">
+                <a href="{% url 'string_converter' %}">String</a>
+            </div>
+            <div class="type_converter">
+                <a href="{% url 'object_converter' %}">Object</a>
+            </div>
+        </div>
+        <div class="converter">
+            <div class="type_converter">
+                <a href="{% url 'int_converter' %}">Int</a>
+            </div>
+            <div class="type_converter">
+                <a href="{% url 'float_converter' %}">Float</a>
+            </div>
+        </div>
+        <div class="converter">
+            <div class="type_converter">
+                <a href="{% url 'bool_converter' %}">Bool</a>
+            </div>
+            <div class="type_converter">
+                <a href="{% url 'date_converter' %}">Date</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

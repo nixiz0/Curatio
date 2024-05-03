@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="Content-Type" content="UTF-8">
+    <meta name="Content-Language" content="en">
+    <meta name="Copyright" content="@initium">
+    <meta name="Author" content="@initium">
+    <meta name="Description" content="Curatio is an application to manage the processing of your data simply and quickly. It is a tool for processing, analyzing and managing data">
+    <meta name="Keywords" content="Curatio, Data processing, data, AI, pre-processing, data-analysis, data processing, database, data management, application, data management application">
+    <meta name="Subject" content="Data processing and management application">
+    <meta name="Revisit-After" content="15 days">
+    <meta name="Robots" content="index">
+    <meta name="Rating" content="general">
+    <meta name="Distribution" content="global">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/curatio-icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Curatio Home</title>
+</head>
+<body>
+
+    <nav class="opacityEffect">
+        <div class="nav_logo">
+            <img src="{% static 'ressources/curatio-logo.png' %}" alt="curatio logo png">
+        </div>
+        <div class="nav_txt">
+            {% if user.is_authenticated %}
+                <a href="{% url 'user-profile' %}">Your Account</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'register' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+            <a href="{% url 'credits' %}">Credits</a>
+        </div>
+    </nav>
+
+    <div class="main_content fadeInUp">
+        <h1>Curatio Application</h1>
+        <div class="sub_content">
+            {% if user.is_authenticated %}
+                <a href="{% url 'panel' %}">
+                    <button> Access </button>
+                </a>
+            {% else %}
+                <a href="{% url 'register' %}">
+                    <button> Register </button>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="presentation fadeInUp">
+        <div class="txt_presentation">
+            <h2>WHAT IS CURATIO ?</h2>
+            <p>
+                Curatio is an application to facilitate <span style="color:#d90429;">preparation</span>
+                and <span style="color:#d90429;">processing</span> of data.
+                This application allows you to manage database columns intuitively,
+                by offering the possibility of modifying them, deleting them or creating new ones in just a few clicks.
+            </p>
+            <p>
+                In addition, it offers <span style="color:#d90429;">functionalities</span>
+                to handle missing values as well as to perform
+                transformations of variables into one-hot or dummy variables (dummies).
+            </p>
+            <p>
+                In summary, this application aims to <span style="color:#d90429;">make your work easier</span>
+                in order to process your data more quickly and efficiently.
+            </p>
+        </div>
+        <div class="txt_presentation2">
+            <h2>WHY I DID CURATIO?</h2>
+            <p>
+                I mainly designed Curatio with the aim of achieving
+                <span style="color:#d90429;">massive time savings</span>
+                when preparing data for building AI models.
+            </p>
+            <p>
+                Additionally, to minimize the need to use code to perform
+                data processing and thus make the data processing
+                accessible to as many people as possible in a <span style="color:#d90429;">simple and quick way</span>.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="img_footer">
+            <a href="https://github.com/nixiz0" target="_blank"><img src="{% static 'ressources/github-logo.png' %}" alt="github logo"></a>
+            <a href="https://www.youtube.com/channel/UCHvAE1TxZENLhmLb3ZJ9k6g/?sub_confirmation=1" target="_blank"><img src="{% static 'ressources/ytb-logo.png' %}" alt="youtube logo"></a>
+        </div>
+        <div>
+            <p>
+                <b style="color: #4ECDC4;">©Initium</b>
+            </p>
+            <p>
+                All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Sweetviz Explo {% endblock %}
+
+{% block content %}
+    <h4 style="text-decoration: underline;">Sweetviz automatic analysis</h4>
+    {{ form.csv_file }}
+    <br>
+    <button class="btn_submit" type="submit">HTML-Sweetviz</button>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Boolean Converter {% endblock %}
+
+{% block content %}
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name column">
+    <br>
+    <button class="btn_submit" type="submit">Convert</button>
+{% endblock %}

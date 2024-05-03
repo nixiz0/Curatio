@@ -1,0 +1,17 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio PCA Analysis {% endblock %}
+
+{% block content %}
+    <div class="pca_illu">
+        <h4>Illustration of PCA</h4>
+        <img src="{% static 'ressources/pca_illu.png' %}" alt="pca illustrations">
+    </div>
+    <label for="{{ form.csv_file.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="btn_submit" type="submit" value="Upload">
+{% endblock %}

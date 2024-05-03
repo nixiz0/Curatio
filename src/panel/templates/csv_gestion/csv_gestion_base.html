@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/icon/csv-gestion-icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/csv_gestion.css' %}">
+    <title>
+        {% block title %} 
+            CSV Gestion Functions 
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <nav>
+            <div class="sous_nav">
+                <a href="{% url 'panel' %}">Panel</a>
+            </div>
+        </nav>
+        <main class="main_content">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% block content %}
+
+                {% endblock %}
+            </form>
+            <a class="cancel_btn" href="javascript:history.back()">Back</a>
+        </main>
+    {% else %}
+        <h1>You Need to Register First</h1>
+    {% endif %}
+</body>
+</html>

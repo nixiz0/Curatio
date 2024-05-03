@@ -1,0 +1,173 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Panel {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/panel.css' %}">
+
+    <div class="upload_btn">
+        <a href="{% url 'upload_csv' %}">
+            <img src="{% static 'ressources/upload-logo.png' %}" alt="upload logo csv file">
+        </a>
+    </div>
+
+    {% if not file_name %}
+        <div>
+            <div class="need_import">
+                <img src="{% static 'ressources/attention_logo.png' %}" alt="attention logo">
+                <h3>Import your CSV File to see your data</h3>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if file_name %}
+        <div class="title_board_csv">
+            <h2>{{ file_name }}</h2>
+        </div>
+
+        <div class="main_shape">
+            <p class="shape">{{ df_shape0 }} lines & {{ df_shape1 }} columns</p>
+        </div>
+
+        <div class="board">
+            <div class="main_board">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for column in df_head.columns %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, row in df_head.iterrows %}
+                            <tr>
+                                {% for value in row %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="title_logo">
+        <img src="{% static 'ressources/line_col_logo.png' %}" alt="lines and columns logo">
+    </div>
+    <div class="title_board">
+        <h2>Lines & Columns</h2>
+    </div>
+
+    <div class="processing_btn">
+        <div class="btn_lin_col">
+            <a class="del_btn" href="{% url 'del_column' %}">Del-Col</a>
+        </div>
+        <div class="btn_lin_col">
+            <a class="add_btn" href="{% url 'add_column' %}">Add-Col</a>
+        </div>
+        <div class="btn_lin_col">
+            <a class="modify_btn" href="{% url 'modify_column' %}">Modify-Col</a>
+        </div>
+    </div>
+    <div class="processing_btn">
+        <div class="btn_lin_col">
+            <a class="del_btn" href="{% url 'del_row' %}">Del-Row</a>
+        </div>
+        <div class="btn_lin_col">
+            <a class="add_btn" href="{% url 'add_row' %}">Add-Row</a>
+        </div>
+        <div class="btn_lin_col">
+            <a class="modify_btn" href="{% url 'modify_row' %}">Modify-Row</a>
+        </div>
+    </div>
+
+    <div class="processing_btn">
+        <div class="btn_lin_col">
+            <a class="interval_btn" href="{% url 'interval' %}">Interval</a>
+        </div>
+        <div class="btn_lin_col">
+            <a class="order_btn" href="{% url 'order_by' %}">OrderBy</a>
+        </div>
+        <div class="btn_lin_col">
+            <a class="order_btn" href="{% url 'reversed_order' %}">ReverseOrder</a>
+        </div>
+    </div>
+
+    <div class="title_logo">
+        <img src="{% static 'ressources/missing_val_logo.png' %}" alt="lines and columns logo">
+    </div>
+    <div class="title_board">
+        <h2>Missing Values</h2>
+    </div>
+    
+    {% if file_name %}
+        <div class="board">
+            <div class="board_miss_val">
+                {% for column, missing_values in df_miss_val.items %}
+                    <li>{{ column }}: {{ missing_values }}</li>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="processing_btn">
+        <div class="btn_miss_val">
+            <a href="{% url 'miss_val_mean' %}">Mean</a>
+        </div>
+        <div class="btn_miss_val">
+            <a href="{% url 'miss_val_median' %}">Median</a>
+        </div>
+        <div class="btn_miss_val">
+            <a href="{% url 'miss_val_std' %}">Std</a>
+        </div>
+    </div>
+    <div class="processing_btn">
+        <div class="btn_miss_val">
+            <a href="{% url 'miss_val_del' %}">Delete</a>
+        </div>
+        <div class="btn_miss_val">
+            <a href="{% url 'miss_val_define' %}">Def-Value</a>
+        </div>
+        <div class="btn_miss_val">
+            <a href="{% url 'miss_val_mode' %}">Mode</a>
+        </div>
+    </div>
+
+    <div class="title_logo">
+        <img src="{% static 'ressources/transfo_var.png' %}" alt="lines and columns logo">
+    </div>
+    <div class="title_board">
+        <h2>Transformation Variables</h2>
+    </div>
+
+    {% if file_name %}
+        <div class="board">
+            <div class="board_transfo">
+                {% for column, object_dtypes in object_dtypes.items %}
+                    <li>{{ column }}: {{ object_dtypes }}</li>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="processing_btn">
+        <div class="btn_transfo">
+            <a href="{% url 'transfo_var_onehot' %}">OneHot</a>
+        </div>
+        <div class="btn_transfo">
+            <a href="{% url 'merge_columns' %}">Fusion</a>
+        </div>
+    </div>
+    <div class="processing_btn">
+        <div class="btn_transfo">
+            <a href="{% url 'transfo_var_label' %}">LabelEncoder</a>
+        </div>
+        <div class="btn_transfo">
+            <a href="{% url 'transfo_var_ordinal' %}">OrdinalEncoder</a>
+        </div>
+    </div>
+{% endblock %}

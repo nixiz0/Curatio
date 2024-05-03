@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #292f36;
+}
+
+.title-form {
+    color: #4ECDC4;
+    text-shadow: 0px 0px 4px rgba(0,0,0);
+    font-size: 2.6em;
+    text-align: center;
+}
+
+.img-form {
+    text-align: center;
+}
+
+.img-form img {
+    width: 6.8em;
+    height: auto;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 4em;
+    background: #4b525a;
+    padding: 1.5em;
+    border: 1px solid #4b525a;
+    box-shadow: 0px 0px 10px rgba(183, 183, 183, 0.1);
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #4ECDC4;
+    text-shadow: 0px 0px 4px rgba(0,0,0);
+    font-weight: bold;
+    display: block;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 17px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="submit"]:active {
+    font-size: 0.78em;
+}
+
+#togglePassword {
+    font-size: 0.8em;
+    position: relative;
+}
+
+    #togglePassword:active {
+        font-size: 0.75em;
+    }
+
+.eye_password {
+    width: 2em;
+    height: auto;
+    position: absolute;
+    top: -38px; 
+    right: 5px;
+    transform: translateY(-55%);
+}
+
+/* Responsive styles */
+@media (max-width: 750px) {
+    
+}
+
+@media (max-width: 599px) {
+    
+}

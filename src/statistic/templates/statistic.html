@@ -1,0 +1,210 @@
+{% extends "panel_user_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Statistic {% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/statistic.css' %}">
+
+    <div class="upload_btn">
+        <a href="{% url 'statistic_upload_csv' %}">
+            <img src="{% static 'ressources/upload-logo.png' %}" alt="upload logo csv file">
+        </a>
+    </div>  
+
+    <div class="statistic_logo">
+        <img src="{% static 'ressources/statistic_logo.png' %}" alt="statistic_logo logo">
+    </div>
+    <div class="statistic_title">
+        <h1>Statistic</h1>
+    </div>
+
+    {% if not file_name %}
+        <div>
+            <div class="need_import">
+                <img src="{% static 'ressources/attention_logo.png' %}" alt="attention logo">
+                <h3>Import your CSV File to see the statistic of your data</h3>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if file_name %}
+        <div class="title_statistic_csv">
+            <h2>{{ file_name }}</h2>
+        </div>
+
+        <div class="stat">
+            <div class="main_stat">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Statistic</th>
+                            {% for column in df_stat.columns %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for index, row in df_stat.iterrows %}
+                            <tr>
+                                <td>{{ index }}</td>
+                                {% for value in row %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>     
+        
+        <div class="select_graph_stat">
+            <div class="stat_plot">
+                <h2>Histogram</h2>
+                <select id="hist-column-select" class="column_selected">
+                    <option value="" selected disabled hidden>Selected Column</option>
+                    {% for col in numeric_columns %}
+                        <option value="{{ col }}">{{ col }}</option>
+                    {% endfor %}
+                </select>            
+                <div class="hist_img">
+                    <img id="histogram" src="" alt="">
+                </div>
+            </div>
+            <div class="stat_plot">
+                <h2>Boxplot</h2>
+                <select id="box-column-select" class="column_selected">
+                    <option value="" selected disabled hidden>Selected Column</option>
+                    {% for col in numeric_columns %}
+                        <option value="{{ col }}">{{ col }}</option>
+                    {% endfor %}
+                </select>     
+                <div class="hist_img">
+                    <img id="boxplot" src="" alt="">
+                </div>
+            </div>
+        
+            <script>
+                var histograms = JSON.parse('{{ histograms|escapejs }}');
+                var boxplots = JSON.parse('{{ boxplots|escapejs }}');
+                document.getElementById('hist-column-select').addEventListener('change', function() {
+                    var selectedColumn = this.value;
+                    document.getElementById('histogram').src='data:image/png;base64,' + histograms[selectedColumn];
+                });
+                document.getElementById('box-column-select').addEventListener('change', function() {
+                    var selectedColumn = this.value;
+                    document.getElementById('boxplot').src='data:image/png;base64,' + boxplots[selectedColumn];
+                });
+            </script>
+        </div>        
+
+        <div class="stat_title">
+            <h2>Quartiles</h2>
+        </div>
+        <div class="stat_view">
+            <div class="main_quartiles">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Columns</td>
+                            <td>Q1 (25th percentile)</td>
+                            <td>Q2 (50th percentile - Median)</td>
+                            <td>Q3 (75th percentile)</td>
+                            <td>Q4 (90th percentile)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for quartile in quartiles %}
+                            <tr>
+                                <td>{{ quartile.column }}</td>
+                                <td>{{ quartile.Q1 }}</td>
+                                <td>{{ quartile.Q2 }}</td>
+                                <td>{{ quartile.Q3 }}</td>
+                                <td>{{ quartile.Q4 }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="stat_title">
+            <h2>Mean & Std</h2>
+        </div>
+        <div class="stat_view">
+            <div class="main_mean_std">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Columns</td>
+                            <td>Mean</td>
+                            <td>Variance</td>
+                            <td>Std</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mean_std in mean_stds %}
+                            <tr>
+                                <td>{{ mean_std.column }}</td>
+                                <td>{{ mean_std.mean }}</td>
+                                <td>{{ mean_std.var }}</td>
+                                <td>{{ mean_std.std }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="stat_title">
+            <h2>Min & Max</h2>
+        </div>
+        <div class="stat_view">
+            <div class="main_min_max">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Columns</td>
+                            <td>Min</td>
+                            <td>Max</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for min_max in min_maxs %}
+                            <tr>
+                                <td>{{ min_max.column }}</td>
+                                <td>{{ min_max.min }}</td>
+                                <td>{{ min_max.max }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="statistic_title">
+        <h1>Statistic Tools</h1>
+    </div>
+
+    <div class="main_stat_tools">
+        <div class="stat_tools">
+            <div class="tool_stat">
+                <a href="{% url 'pca' %}">PCA</a>
+            </div>
+            <div class="tool_stat">
+                <a href="{% url 'features_importance' %}">Important-Features</a>
+            </div>
+        </div>
+        <div class="stat_tools">
+            <div class="tool_stat">
+                <a href="{% url 'chi_square' %}">Chi-Square</a>
+            </div>
+            <div class="tool_stat">
+                <a href="{% url 'shapiro_wilk' %}">Shapiro-Wilk</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

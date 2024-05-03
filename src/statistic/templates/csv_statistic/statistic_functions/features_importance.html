@@ -1,0 +1,19 @@
+{% extends "csv_gestion/csv_gestion_base.html" %}
+{% load static %}
+
+
+{% block title %} Curatio Features Importantes {% endblock %}
+
+{% block content %}
+    <div class="graph_explain">
+        <p><b style="color: red;">Be careful to ensure that you don't have categorical columns.</b></p>
+        <p><b style="color: #00aeffff;">Otherwise you will have to encode them.</b></p>
+    </div>
+    <label for="{{ form.csv_file.id_for_label }}">Upload Your CSV File :</label> 
+    <br>
+    {{ form.csv_file }}
+    <br>
+    <input class="input_user" type="text" name="{{ form.column.name }}" placeholder="Name Target column">
+    <br>
+    <input class="btn_submit" type="submit" value="Upload">
+{% endblock %}

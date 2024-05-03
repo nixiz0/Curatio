@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="Content-Type" content="UTF-8">
+    <meta name="Content-Language" content="en">
+    <meta name="Copyright" content="@initium">
+    <meta name="Author" content="@initium">
+    <meta name="Description" content="Curatio is an application to manage the processing of your data simply and quickly. It is a tool for processing, analyzing and managing data">
+    <meta name="Keywords" content="Curatio, Data processing, data, AI, pre-processing, data-analysis, data processing, database, data management, application, data management application">
+    <meta name="Subject" content="Data processing and management application">
+    <meta name="Revisit-After" content="15 days">
+    <meta name="Robots" content="index">
+    <meta name="Rating" content="general">
+    <meta name="Distribution" content="global">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'ressources/curatio-icon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/credits.css' %}">
+    <title>Curatio Credits</title>
+</head>
+<body>
+    
+    <nav class="opacityEffect">
+        <a href="{% url 'home' %}"><img src="{% static 'ressources/curatio-logo.png' %}" alt="curatio logo png"></a>
+    </nav>
+
+    <div class="main_credits opacityEffect">
+        <h2>Credits</h2>
+        <img class="fadeInUp" src="{% static 'ressources/logo-initium.png' %}" alt="Initium logo">
+        <h3 class="fadeInUp">@Initium</h3>
+    </div>
+
+    <footer>
+        <div class="img_footer">
+            <a href="https://github.com/nixiz0" target="_blank"><img src="{% static 'ressources/github-logo.png' %}" alt="github logo"></a>
+            <a href="https://www.youtube.com/channel/UCHvAE1TxZENLhmLb3ZJ9k6g/?sub_confirmation=1" target="_blank"><img src="{% static 'ressources/ytb-logo.png' %}" alt="youtube logo"></a>
+        </div>
+        <div>
+            <p>
+                <b style="color: #4ECDC4;">©Initium</b>
+            </p>
+            <p>
+                All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
