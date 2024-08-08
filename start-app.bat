@@ -1,4 +1,8 @@
 @echo off
+
+REM Change to the directory where the script is located
+cd /d %~dp0
+
 IF NOT EXIST .env (
     python -m venv .env
     cd .env\Scripts
